@@ -1,32 +1,24 @@
-from random import *
+# Импорт функции получения случайных чисел
+# из модуля random.
+from random import randint
 
-
-n = randint(1, 100)
+# Получаем случайное число в диапазоне от 1 до 100.
+number = randint(1, 100)
 print('Угадайте число от 1 до 100')
 
-def is_valid(s):
-    if 1 <= s <= 100:
-        return True
-    else:
-        return False
+while True:
+    # Получаем число от пользователя и сохраняем его в переменную.
+    guess = int(input('Введите число: '))
 
-flag = False
-
-while flag == False:
-
-    d = int(input())
-
-    if is_valid(d):
-        if d < n:
-            print('Ваше число меньше того, что загадано')
-            flag = False
-        elif d > n:
-            print('Ваше число больше того, что загадано')
-            flag = False
-        elif d == n:
-            print('Отличная интуиция! Вы угадали число ')
-            flag = True
-    else:
-        flag = False
-
-
+    # Если число меньше загаданного...
+    if guess < number:
+        # ...выводим сообщение.
+        print('Ваше число меньше того, что загадано.')
+    elif guess > number:
+        # ...выводим сообщение.
+        print('Ваше число больше того, что загадано.')
+    elif guess == number:
+        # ...прерываем выполнение программы и...
+        break
+# ...выводим сообщение.
+print('Отличная интуиция! Вы угадали число :)')
